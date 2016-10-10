@@ -2,8 +2,8 @@ class Capuccino < Beverage
 
   def initialize
     super
-    @price = 100
-    @time = 1
+    @price = 1000
+    @time = 10
   end
 
   def isCapuccino

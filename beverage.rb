@@ -14,6 +14,10 @@ class Beverage
     return @price
   end
 
+  def getTime
+    return @time
+  end
+
   def addNumberOfCondiments
     @numberOfCondiments+=1
   end

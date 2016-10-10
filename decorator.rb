@@ -14,6 +14,10 @@ class Decorator < Beverage
     return @beverage.getPrice
   end
 
+  def getTime
+    return @beverage.getTime
+  end
+
   def addNumberOfCondiments
     @beverage.addNumberOfCondiments
   end

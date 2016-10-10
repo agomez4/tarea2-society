@@ -1,8 +1,8 @@
 class Chocolate < Beverage
   def initialize
     super
-    @price = 200
-    @time = 2
+    @price = 2000
+    @time = 20
   end
 
   def isChocolate

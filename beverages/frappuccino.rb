@@ -2,8 +2,8 @@ class Frappuccino < Beverage
 
   def initialize
     super
-    @price = 400
-    @time = 4
+    @price = 4000
+    @time = 40
   end
 
   def getPrice

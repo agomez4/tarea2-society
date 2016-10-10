@@ -1,8 +1,8 @@
 class Espresso < Beverage
   def initialize
     super
-    @price = 300
-    @time = 3
+    @price = 3000
+    @time = 30
   end
 
   def isEspresso
