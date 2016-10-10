@@ -26,6 +26,10 @@ class Beverage
     return false
   end
 
+  def containsCream
+    return false
+  end
+
   def isChocolate
     return false
   end
@@ -37,4 +41,5 @@ class Beverage
   def isCapuccino
     return false
   end
+
 end
