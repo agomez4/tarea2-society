@@ -1,0 +1,2 @@
+class ChocolateCondiment < Decorator
+end

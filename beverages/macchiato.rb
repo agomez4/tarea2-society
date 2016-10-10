@@ -1,0 +1,3 @@
+class Macchiato < Beverage
+
+end

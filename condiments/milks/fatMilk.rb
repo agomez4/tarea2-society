@@ -1,0 +1,3 @@
+class FatMilk < Milk
+
+end

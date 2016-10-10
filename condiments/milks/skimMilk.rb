@@ -1,0 +1,3 @@
+class SkimMilk < Milk
+
+end

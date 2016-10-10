@@ -1,0 +1,3 @@
+class Frappuccino < Beverage
+
+end

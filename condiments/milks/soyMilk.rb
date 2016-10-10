@@ -1,0 +1,3 @@
+class SoyMilk < Milk
+
+end

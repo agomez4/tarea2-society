@@ -1,0 +1,3 @@
+class Cream < Decorator
+
+end

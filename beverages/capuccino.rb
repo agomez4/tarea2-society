@@ -1,0 +1,3 @@
+class Capuccino < Beverage
+
+end

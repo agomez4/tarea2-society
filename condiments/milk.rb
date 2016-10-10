@@ -1,0 +1,3 @@
+class Milk < Decorator
+
+end
