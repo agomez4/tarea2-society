@@ -15,10 +15,14 @@ require_relative 'condiments/milks/fatMilk'
 require_relative 'condiments/milks/skimMilk'
 require_relative 'condiments/milks/soyMilk'
 require_relative 'customer'
+require_relative 'order'
 
 def welcome
   puts "Hola, Cual es su nombre? "
   customer = Customer.new(gets.chomp)
+  order = Order.new(customer)
+  order = coffee_loop(order)
+  order.print
 end
 
 def condiments_loop(chosenBeverage)
@@ -39,7 +43,7 @@ def condiments_loop(chosenBeverage)
   return chosenBeverage
 end
 
-def coffee_loop
+def coffee_loop(order)
   continue = true
   while (continue)
     puts "Que desea? (1 Capuccino 2 Chocolate 3 Espresso 4 Frapuccino 5 Macchiato 6 Te)"
@@ -50,18 +54,19 @@ def coffee_loop
     end
     chosenBeverage = condiments_loop(chosenBeverage)
     puts "Se agrego un " + chosenBeverage.type
+    order.addBeverage(chosenBeverage)
     puts "Desea agregar otro cafe? (s/n)"
     if (gets.chomp == 'n')
       continue = false
     end
   end
+  return order
 end
 
 def customer_loop
   continue = true
   while (continue)
     welcome
-    coffee_loop
     puts "Atender a otro cliente? (s/n)"
     if (gets.chomp == 'n')
       continue = false
