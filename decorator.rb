@@ -27,7 +27,7 @@ class Decorator < Beverage
   end
 
   def containsCream
-    return @beverabe.containsCream
+    return @beverage.containsCream
   end
 
   def isChocolate

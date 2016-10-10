@@ -16,13 +16,17 @@ require_relative 'condiments/milks/skimMilk'
 require_relative 'condiments/milks/soyMilk'
 require_relative 'customer'
 require_relative 'order'
+require_relative 'machine'
 
 def welcome
-  puts "Hola, Cual es su nombre? "
+  puts "Hola, Cual es tu nombre? "
   customer = Customer.new(gets.chomp)
   order = Order.new(customer)
   order = coffee_loop(order)
+  order.calculateTotalPrice
   order.print
+  machine = Machine.getInstance
+  machine.payOrder(order)
 end
 
 def condiments_loop(chosenBeverage)

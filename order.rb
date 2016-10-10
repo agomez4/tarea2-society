@@ -1,4 +1,5 @@
 class Order
+  attr_accessor :totalPrice
   @beverageList
   @customer
 
@@ -21,16 +22,15 @@ class Order
     puts "RESUMEN ORDEN"
     puts getNameToShow
     puts "******************************************"
-    puts "El precio total es: $" + calculateTotalPrice.to_s
+    puts "El precio total es: $" + @totalPrice.to_s
     puts "El tiempo de preparacion es: " + calculateTotalTime.to_s + " segundos"
   end
 
   def calculateTotalPrice
-    total = 0;
+    @totalPrice = 0;
     @beverageList.each do |bev|
-      total += bev.getPrice
+      @totalPrice += bev.getPrice
     end
-    return total
   end
 
   def calculateTotalTime
