@@ -1,7 +1,7 @@
 class SoyMilk < Milk
 
-  def getPrice
-    return @beverage.getPrice + 300
+  def price
+    @beverage.price + 300
   end
 
 

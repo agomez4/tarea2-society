@@ -1,90 +1,77 @@
+# /order.rb
 class Order
-  attr_accessor :totalPrice
-  @beverageList
-  @customer
+  attr_accessor :total_price
 
   def initialize(customer)
     @customer = customer
-    @beverageList = []
+    @beverage_list = []
   end
 
-  def addBeverage(beverage)
-    @beverageList << beverage
+  def add_beverage(beverage)
+    @beverage_list << beverage
   end
 
   def print
-    @beverageList.each do |bev|
+    @beverage_list.each do |bev|
       puts bev.type
-      puts bev.getPrice
-      puts bev.getTime
+      puts bev.price
+      puts bev.time
     end
-    puts "******************************************"
-    puts "RESUMEN ORDEN"
-    puts getNameToShow
-    puts "******************************************"
-    puts "El precio total es: $" + @totalPrice.to_s
-    puts "El tiempo de preparacion es: " + calculateTotalTime.to_s + " segundos"
+    puts '******************************************'
+    puts 'RESUMEN ORDEN'
+    puts name_to_show
+    puts '******************************************'
+    puts 'El precio total es: $' + @total_price.to_s
+    puts 'El tiempo de preparacion es: ' + calculate_total_time.to_s + ' segundos'
   end
 
-  def calculateTotalPrice
-    @totalPrice = 0;
-    @beverageList.each do |bev|
-      @totalPrice += bev.getPrice
+  def calculate_total_price
+    @total_price = 0
+    @beverage_list.each do |bev|
+      @total_price += bev.price
     end
   end
 
-  def calculateTotalTime
+  def calculate_total_time
     total = 0
-    @beverageList.each do |bev|
-      total += bev.getTime
+    @beverage_list.each do |bev|
+      total += bev.time
     end
-    if (containsEspresso)
-      total = total * 0.8
-    end
-    return total
+    total *= 0.8 if contains_espresso
+    total
   end
 
-  def containsEspresso
-    @beverageList.each do |bev|
-      if (bev.isEspresso)
-        return true
+  def contains_espresso
+    @beverage_list.each do |bev|
+      return true if bev.espresso?
+    end
+    false
+  end
+
+  def contains_chocolate
+    @beverage_list.each do |bev|
+      return true if bev.chocolate?
+    end
+    false
+  end
+
+  def contains_cream
+    @beverage_list.each do |bev|
+      return true if bev.contains_cream
+    end
+    false
+  end
+
+  def name_to_show
+    name_to_show = @customer.name
+    name_to_show = name_to_show.upcase if contains_chocolate
+    if contains_cream
+      newname_to_show = ''
+      name_to_show.each_char do |i|
+        newname_to_show += i + ' '
       end
+      name_to_show = newname_to_show
     end
-    return false
+    name_to_show
   end
-
-  def containsChocolate
-    @beverageList.each do |bev|
-      if (bev.isChocolate)
-        return true
-      end
-    end
-    return false
-  end
-
-  def containsCream
-    @beverageList.each do |bev|
-      if (bev.containsCream)
-        return true
-      end
-    end
-    return false
-  end
-
-  def getNameToShow
-    nameToShow = @customer.name
-    if (containsChocolate)
-      nameToShow = nameToShow.upcase
-    end
-    if (containsCream)
-      newNameToShow = ""
-      nameToShow.each_char do |i|
-        newNameToShow += i+" "
-      end
-      nameToShow = newNameToShow
-    end
-    return nameToShow
-  end
-
-
 end

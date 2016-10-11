@@ -1,9 +1,6 @@
 class ChocolateCondiment < Decorator
-  def getPrice
-    if (@beverage.isChocolate)
-      return @beverage.getPrice
-    else
-      return @beverage.getPrice + 200
-    end
+  def price
+    return @beverage.price if @beverage.chocolate?
+    @beverage.price + 200
   end
 end

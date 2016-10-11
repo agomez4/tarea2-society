@@ -1,5 +1,5 @@
+# beverageCreator
 class BeverageCreator
-
   def self.create_beverage(type)
     case type
     when '1'
@@ -22,26 +22,18 @@ class BeverageCreator
   def self.update_beverage(beverage, type)
     case type
     when '1'
-      if (!beverage.containsMilk)
-        return FatMilk.new(beverage)
-      else
-        puts "Ya tiene leche"
-        return beverage
-      end
+      return FatMilk.new(beverage) unless beverage.contains_milk
+      puts 'Ya tiene leche'
+      return beverage
+
     when '2'
-      if (!beverage.containsMilk)
-        return SkimMilk.new(beverage)
-      else
-        puts "Ya tiene leche"
-        return beverage
-      end
+      return SkimMilk.new(beverage) unless beverage.contains_milk
+      puts 'Ya tiene leche'
+      return beverage
     when '3'
-      if (!beverage.containsMilk)
-        return SoyMilk.new(beverage)
-      else
-        puts "Ya tiene leche"
-        return beverage
-      end
+      return SoyMilk.new(beverage) unless beverage.contains_milk
+      puts 'Ya tiene leche'
+      return beverage
     when '4'
       return Cream.new(beverage)
     when '5'
@@ -54,5 +46,4 @@ class BeverageCreator
       return nil
     end
   end
-
 end

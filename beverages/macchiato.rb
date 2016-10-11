@@ -5,13 +5,13 @@ class Macchiato < Beverage
     @time = 50
   end
 
-  def getTime
-    randomNumber = rand
-    totalTime = @time
-    while (randomNumber < 0.1)
-      totalTime += @time
-      randomNumber = rand
+  def time
+    random_number = rand
+    total_time = @time
+    while random_number < 0.1
+      total_time += @time
+      random_number = rand
     end
-    return totalTime
+    total_time
   end
 end

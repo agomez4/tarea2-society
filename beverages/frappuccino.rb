@@ -6,7 +6,7 @@ class Frappuccino < Beverage
     @time = 40
   end
 
-  def getPrice
-    return @price * (1 + 0.05 * @numberOfCondiments)
+  def price
+    return @price * (1 + 0.05 * @number_of_condiments)
   end
 end

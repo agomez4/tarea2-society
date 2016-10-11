@@ -1,44 +1,43 @@
+# /decorator.rb
 class Decorator < Beverage
-  @beverage
-
   def initialize(beverage)
     @beverage = beverage
-    addNumberOfCondiments
+    add_number_of_condiments
   end
 
   def type
-    return @beverage.type + " + " + self.class.name
+    @beverage.type + ' + ' + self.class.name
   end
 
-  def getPrice
-    return @beverage.getPrice
+  def price
+    @beverage.price
   end
 
-  def getTime
-    return @beverage.getTime
+  def time
+    @beverage.time
   end
 
-  def addNumberOfCondiments
-    @beverage.addNumberOfCondiments
+  def add_number_of_condiments
+    @beverage.add_number_of_condiments
   end
 
-  def containsMilk
-    return @beverage.containsMilk
+  def contains_milk
+    @beverage.contains_milk
   end
 
-  def containsCream
-    return @beverage.containsCream
+  def contains_cream
+    @beverage.contains_cream
   end
 
-  def isChocolate
-    return @beverage.isChocolate
+  def chocolate?
+    @beverage.chocolate?
   end
 
-  def isEspresso
-    return @beverage.isEspresso
+  def espresso?
+    @beverage.espresso?
   end
 
-  def isCapuccino
-    return @beverage.isCapuccino
+  def capuccino?
+    @beverage.capuccino?
   end
 end

@@ -5,8 +5,7 @@ class Espresso < Beverage
     @time = 30
   end
 
-  def isEspresso
-    return true
+  def espresso?
+    true
   end
-
 end

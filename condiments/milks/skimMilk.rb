@@ -1,3 +1,2 @@
 class SkimMilk < Milk
-
 end

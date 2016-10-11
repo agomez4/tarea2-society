@@ -19,62 +19,56 @@ require_relative 'order'
 require_relative 'machine'
 
 def welcome
-  puts "Hola, Cual es tu nombre? "
+  puts 'Hola, Cual es tu nombre? '
   customer = Customer.new(gets.chomp)
   order = Order.new(customer)
   order = coffee_loop(order)
-  order.calculateTotalPrice
+  order.calculate_total_price
   order.print
-  machine = Machine.getInstance
-  machine.payOrder(order)
+  machine = Machine.instance
+  machine.pay_order(order)
 end
 
-def condiments_loop(chosenBeverage)
+def condiments_loop(chosen_beverage)
   continue = true
-  while (continue)
-    puts "Que condimentos desea agregar? (0 Ninguno 1 Leche entera 2 Leche descremada 3 Leche de soya 4 Crema 5 Helado 6 Chocolate)"
-    updatedBeverage = BeverageCreator.update_beverage(chosenBeverage, gets.chomp)
-    while (!updatedBeverage)
-      puts "Que condimentos desea agregar? ingrese un valor valido (0 Ninguno 1 Leche entera 2 Leche descremada 3 Leche de soya 4 Crema 5 Helado 6 Chocolate)"
-      updatedBeverage = BeverageCreator.update_beverage(chosenBeverage, gets.chomp)
+  while continue
+    puts 'Que condimentos desea agregar? (0 Ninguno 1 Leche entera 2 Leche descremada 3 Leche de soya 4 Crema 5 Helado 6 Chocolate)'
+    updated_beverage = BeverageCreator.update_beverage(chosen_beverage, gets.chomp)
+    until updated_beverage
+      puts 'Que condimentos desea agregar? ingrese un valor valido (0 Ninguno 1 Leche entera 2 Leche descremada 3 Leche de soya 4 Crema 5 Helado 6 Chocolate)'
+      updated_beverage = BeverageCreator.update_beverage(chosen_beverage, gets.chomp)
     end
-    chosenBeverage = updatedBeverage
-    puts "Desea agregar otro condimento? (s/n)"
-    if (gets.chomp == 'n')
-      continue = false
-    end
+    chosen_beverage = updated_beverage
+    puts 'Desea agregar otro condimento? (s/n)'
+    continue = false if gets.chomp == 'n'
   end
-  return chosenBeverage
+  chosen_beverage
 end
 
 def coffee_loop(order)
   continue = true
-  while (continue)
-    puts "Que desea? (1 Capuccino 2 Chocolate 3 Espresso 4 Frapuccino 5 Macchiato 6 Te)"
-    chosenBeverage = BeverageCreator.create_beverage(gets.chomp)
-    while (!chosenBeverage)
-      puts "Que desea, ingrese un valor valido? (1 Capuccino 2 Chocolate 3 Espresso 4 Frapuccino 5 Macchiato 6 Te)"
-      chosenBeverage = BeverageCreator.create_beverage(gets.chomp)
+  while continue
+    puts 'Que desea? (1 Capuccino 2 Chocolate 3 Espresso 4 Frapuccino 5 Macchiato 6 Te)'
+    chosen_beverage = BeverageCreator.create_beverage(gets.chomp)
+    until chosen_beverage
+      puts 'Que desea, ingrese un valor valido? (1 Capuccino 2 Chocolate 3 Espresso 4 Frapuccino 5 Macchiato 6 Te)'
+      chosen_beverage = BeverageCreator.create_beverage(gets.chomp)
     end
-    chosenBeverage = condiments_loop(chosenBeverage)
-    puts "Se agrego un " + chosenBeverage.type
-    order.addBeverage(chosenBeverage)
-    puts "Desea agregar otro cafe? (s/n)"
-    if (gets.chomp == 'n')
-      continue = false
-    end
+    chosen_beverage = condiments_loop(chosen_beverage)
+    puts 'Se agrego un ' + chosen_beverage.type
+    order.add_beverage(chosen_beverage)
+    puts 'Desea agregar otro cafe? (s/n)'
+    continue = false if gets.chomp == 'n'
   end
-  return order
+  order
 end
 
 def customer_loop
   continue = true
-  while (continue)
+  while continue
     welcome
-    puts "Atender a otro cliente? (s/n)"
-    if (gets.chomp == 'n')
-      continue = false
-    end
+    puts 'Atender a otro cliente? (s/n)'
+    continue = false if gets.chomp == 'n'
   end
 end
 

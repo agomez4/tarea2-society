@@ -1,9 +1,5 @@
 class FatMilk < Milk
-
-  def getPrice
-    return @beverage.getPrice - 200
+  def price
+    @beverage.price - 200
   end
-
-
-
 end

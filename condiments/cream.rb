@@ -1,6 +1,6 @@
+# condiments/cream
 class Cream < Decorator
-
-  def containsCream
-    return true
+  def contains_cream
+    true
   end
 end

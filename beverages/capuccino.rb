@@ -6,11 +6,11 @@ class Capuccino < Beverage
     @time = 10
   end
 
-  def isCapuccino
+  def capuccino?
     return true
   end
 
-  def getPrice
-    return @price + 100*@numberOfCondiments
+  def price
+    return @price + 100*@number_of_condiments
   end
 end

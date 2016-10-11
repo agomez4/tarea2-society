@@ -1,45 +1,37 @@
+# beverage class from which all beverage inherit from
 class Beverage
   attr_reader :price, :time, :description
-  attr_accessor :numberOfCondiments
+  attr_accessor :number_of_condiments
 
   def initialize
-    @numberOfCondiments = 0
+    @number_of_condiments = 0
   end
 
   def type
-    return self.class.name
+    self.class.name
   end
 
-  def getPrice
-    return @price
+  def add_number_of_condiments
+    @number_of_condiments += 1
   end
 
-  def getTime
-    return @time
+  def contains_milk
+    false
   end
 
-  def addNumberOfCondiments
-    @numberOfCondiments+=1
+  def contains_cream
+    false
   end
 
-  def containsMilk
-    return false
+  def chocolate?
+    false
   end
 
-  def containsCream
-    return false
+  def espresso?
+    false
   end
 
-  def isChocolate
-    return false
+  def capuccino?
+    false
   end
-
-  def isEspresso
-    return false
-  end
-
-  def isCapuccino
-    return false
-  end
-
 end

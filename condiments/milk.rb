@@ -1,6 +1,6 @@
+# class milk. Overrides the contain milk method
 class Milk < Decorator
-
-  def containsMilk
-    return true
+  def contains_milk
+    true
   end
 end

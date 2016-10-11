@@ -1,3 +1,4 @@
+# beverages/chocolate.rb
 class Chocolate < Beverage
   def initialize
     super
@@ -5,7 +6,7 @@ class Chocolate < Beverage
     @time = 20
   end
 
-  def isChocolate
-    return true
+  def chocolate?
+    true
   end
 end

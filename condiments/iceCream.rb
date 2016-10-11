@@ -1,10 +1,9 @@
 class IceCream < Decorator
-
-  def getPrice
-    if (rand < 0.5)
-      @beverage.getPrice + 100
+  def price
+    if rand < 0.5
+      @beverage.price + 100
     else
-      @beverage.getPrice + 500
+      @beverage.price + 500
     end
   end
 end
