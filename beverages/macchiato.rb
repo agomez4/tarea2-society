@@ -1,3 +1,4 @@
+# beverages/macchiato.rb
 class Macchiato < Beverage
   def initialize
     super

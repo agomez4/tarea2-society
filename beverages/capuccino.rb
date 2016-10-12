@@ -1,5 +1,5 @@
+# beverages/capuccino.rb
 class Capuccino < Beverage
-
   def initialize
     super
     @price = 1000
@@ -7,10 +7,10 @@ class Capuccino < Beverage
   end
 
   def capuccino?
-    return true
+    true
   end
 
   def price
-    return @price + 100*@number_of_condiments
+    @price + 100 * @number_of_condiments
   end
 end

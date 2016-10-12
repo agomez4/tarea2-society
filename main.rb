@@ -32,11 +32,20 @@ end
 def condiments_loop(chosen_beverage)
   continue = true
   while continue
-    puts 'Que condimentos desea agregar? (0 Ninguno 1 Leche entera 2 Leche descremada 3 Leche de soya 4 Crema 5 Helado 6 Chocolate)'
-    updated_beverage = BeverageCreator.update_beverage(chosen_beverage, gets.chomp)
+    puts 'Que condimentos desea agregar?
+    (0 Ninguno 1 Leche entera 2 Leche descremada 3 Leche de soya
+    4 Crema 5 Helado 6 Chocolate)'
+    updated_beverage = BeverageCreator.update_beverage(
+      chosen_beverage, gets.chomp
+    )
     until updated_beverage
-      puts 'Que condimentos desea agregar? ingrese un valor valido (0 Ninguno 1 Leche entera 2 Leche descremada 3 Leche de soya 4 Crema 5 Helado 6 Chocolate)'
-      updated_beverage = BeverageCreator.update_beverage(chosen_beverage, gets.chomp)
+      puts 'Que condimentos desea agregar?
+      ingrese un valor valido
+      (0 Ninguno 1 Leche entera 2 Leche descremada 3 Leche de soya
+      4 Crema 5 Helado 6 Chocolate)'
+      updated_beverage = BeverageCreator.update_beverage(
+        chosen_beverage, gets.chomp
+      )
     end
     chosen_beverage = updated_beverage
     puts 'Desea agregar otro condimento? (s/n)'
@@ -48,10 +57,12 @@ end
 def coffee_loop(order)
   continue = true
   while continue
-    puts 'Que desea? (1 Capuccino 2 Chocolate 3 Espresso 4 Frapuccino 5 Macchiato 6 Te)'
+    puts 'Que desea?
+    (1 Capuccino 2 Chocolate 3 Espresso 4 Frapuccino 5 Macchiato 6 Te)'
     chosen_beverage = BeverageCreator.create_beverage(gets.chomp)
     until chosen_beverage
-      puts 'Que desea, ingrese un valor valido? (1 Capuccino 2 Chocolate 3 Espresso 4 Frapuccino 5 Macchiato 6 Te)'
+      puts 'Que desea, ingrese un valor valido?
+      (1 Capuccino 2 Chocolate 3 Espresso 4 Frapuccino 5 Macchiato 6 Te)'
       chosen_beverage = BeverageCreator.create_beverage(gets.chomp)
     end
     chosen_beverage = condiments_loop(chosen_beverage)

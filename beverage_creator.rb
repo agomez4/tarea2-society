@@ -23,16 +23,12 @@ class BeverageCreator
     case type
     when '1'
       return FatMilk.new(beverage) unless beverage.contains_milk
-      puts 'Ya tiene leche'
       return beverage
-
     when '2'
       return SkimMilk.new(beverage) unless beverage.contains_milk
-      puts 'Ya tiene leche'
       return beverage
     when '3'
       return SoyMilk.new(beverage) unless beverage.contains_milk
-      puts 'Ya tiene leche'
       return beverage
     when '4'
       return Cream.new(beverage)

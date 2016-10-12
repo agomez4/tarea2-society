@@ -1,3 +1,4 @@
+# condiments/iceCream.rb
 class IceCream < Decorator
   def price
     if rand < 0.5

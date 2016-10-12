@@ -27,7 +27,8 @@ class Machine
   end
 
   def insert_money(order)
-    puts "Faltan $#{order.total_price} por pagar, de que valor es el billete o moneda que va a ingresar?"
+    puts "Faltan $#{order.total_price} por pagar,
+    de que valor es el billete o moneda que va a ingresar?"
     bill_or_coin = gets.chomp.to_i
     if @bills_and_coins.key?(bill_or_coin)
       @bills_and_coins[bill_or_coin] += 1
