@@ -1,5 +1,5 @@
 require_relative 'beverage'
-require_relative 'beverageCreator'
+require_relative 'beverage_creator'
 require_relative 'beverages/capuccino'
 require_relative 'beverages/chocolate'
 require_relative 'beverages/espresso'
@@ -7,13 +7,13 @@ require_relative 'beverages/frappuccino'
 require_relative 'beverages/macchiato'
 require_relative 'beverages/tea'
 require_relative 'decorator'
-require_relative 'condiments/chocolateCondiment'
+require_relative 'condiments/chocolate_condiment'
 require_relative 'condiments/cream'
-require_relative 'condiments/iceCream'
+require_relative 'condiments/ice_cream'
 require_relative 'condiments/milk'
-require_relative 'condiments/milks/fatMilk'
-require_relative 'condiments/milks/skimMilk'
-require_relative 'condiments/milks/soyMilk'
+require_relative 'condiments/milks/fat_milk'
+require_relative 'condiments/milks/skim_milk'
+require_relative 'condiments/milks/soy_milk'
 require_relative 'customer'
 require_relative 'order'
 require_relative 'machine'
@@ -33,16 +33,15 @@ def condiments_loop(chosen_beverage)
   continue = true
   while continue
     puts 'Que condimentos desea agregar?
-    (0 Ninguno 1 Leche entera 2 Leche descremada 3 Leche de soya
-    4 Crema 5 Helado 6 Chocolate)'
+    (0 Ninguno 1 Leche entera 2 Leche descremada 3 Leche de soya'\
+    '4 Crema 5 Helado 6 Chocolate)'
     updated_beverage = BeverageCreator.update_beverage(
       chosen_beverage, gets.chomp
     )
     until updated_beverage
       puts 'Que condimentos desea agregar?
-      ingrese un valor valido
-      (0 Ninguno 1 Leche entera 2 Leche descremada 3 Leche de soya
-      4 Crema 5 Helado 6 Chocolate)'
+      (0 Ninguno 1 Leche entera 2 Leche descremada 3 Leche de soya'\
+      '4 Crema 5 Helado 6 Chocolate)'
       updated_beverage = BeverageCreator.update_beverage(
         chosen_beverage, gets.chomp
       )
