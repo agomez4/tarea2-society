@@ -12,7 +12,6 @@ class Machine
       50 => 5,
       10 => 100
     }
-
   end
 
   def self.instance
@@ -27,7 +26,8 @@ class Machine
       insert_money(order) while order.total_price >= 10
       not_ended = !give_change(order)
       if not_ended
-        puts 'No podemos dar vuelto a ese monto, tome toda su plata y vuelva a intentar denuevo'
+        puts 'No podemos dar vuelto a ese monto'\
+        ' tome toda su plata y vuelva a intentar denuevo'
         order.total_price = initial_amount_due
       end
     end
@@ -74,8 +74,8 @@ class Machine
       @bills_and_coins = previous_bills_and_coins
       return false
     end
-    puts 'Vuelto: '
-    print_status(change)
+    puts 'Vuelto:'
+    puts print_status(change)
     true
   end
 
