@@ -52,7 +52,6 @@ class Store
   def set_condiment(cond, data)
     cond.class_variable_set(:@@price, data[:price])
     cond.class_variable_set(:@@description, data[:description])
-    puts cond.class_variable_get(:@@price)
   end
 
   def condiment_init

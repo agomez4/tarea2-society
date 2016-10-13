@@ -7,7 +7,7 @@
 # versions of RuboCop, may require this file to be generated again.
 
 Metrics/AbcSize:
-  Max: 20
+  Max: 25
 
 Metrics/CyclomaticComplexity:
   Max: 14
@@ -17,11 +17,11 @@ Metrics/PerceivedComplexity:
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes.
 # URISchemes: http, https
 Metrics/LineLength:
-  Max: 90
+  Max: 120
 
 # Configuration parameters: CountComments.
 Metrics/MethodLength:
-  Max: 27
+  Max: 35
 
 Style/ClassVars:
   Exclude:

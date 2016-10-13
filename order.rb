@@ -14,8 +14,8 @@ class Order
   def print
     @beverage_list.each do |bev|
       puts bev.type
-      puts bev.price
-      puts bev.time
+      puts 'precio ' + bev.price.to_s
+      puts 'tiempo ' + bev.time.to_s
     end
     puts '******************************************'
     puts 'RESUMEN ORDEN'
