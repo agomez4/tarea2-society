@@ -1,12 +1,16 @@
 # beverages/frappuccino.rb
 class Frappuccino < Beverage
+  @@price = 4000
+  @@time = 40
   def initialize
     super
-    @price = 4000
-    @time = 40
   end
 
   def price
-    @price * (1 + 0.05 * @number_of_condiments)
+    @@price * (1 + 0.05 * @number_of_condiments)
+  end
+
+  def time
+    @@time
   end
 end

@@ -1,8 +1,6 @@
 # beverage class from which all beverage inherit from
 class Beverage
-  attr_reader :price, :time, :description
-  attr_accessor :number_of_condiments
-
+  attr_accessor :number_of_condiments, :price, :time, :description
   def initialize
     @number_of_condiments = 0
   end

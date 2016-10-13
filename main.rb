@@ -17,6 +17,7 @@ require_relative 'condiments/milks/soy_milk'
 require_relative 'customer'
 require_relative 'order'
 require_relative 'machine'
+require_relative 'store'
 
 def welcome
   puts 'Hola, Cual es tu nombre? '
@@ -34,14 +35,14 @@ def condiments_loop(chosen_beverage)
   while continue
     puts 'Que condimentos desea agregar?
     (0 Ninguno 1 Leche entera 2 Leche descremada 3 Leche de soya'\
-    '4 Crema 5 Helado 6 Chocolate)'
+    ' 4 Crema 5 Helado 6 Chocolate)'
     updated_beverage = BeverageCreator.update_beverage(
       chosen_beverage, gets.chomp
     )
     until updated_beverage
       puts 'Que condimentos desea agregar?
       (0 Ninguno 1 Leche entera 2 Leche descremada 3 Leche de soya'\
-      '4 Crema 5 Helado 6 Chocolate)'
+      ' 4 Crema 5 Helado 6 Chocolate)'
       updated_beverage = BeverageCreator.update_beverage(
         chosen_beverage, gets.chomp
       )
@@ -74,6 +75,11 @@ def coffee_loop(order)
 end
 
 def customer_loop
+  puts 'Inicalizando programa'
+  store = Store.new
+  store.beverage_init
+  store.condiment_init
+  # puts prices
   continue = true
   while continue
     welcome
