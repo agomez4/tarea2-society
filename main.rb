@@ -19,17 +19,6 @@ require_relative 'order'
 require_relative 'machine'
 require_relative 'store'
 
-def welcome
-  puts 'Hola, Cual es tu nombre? '
-  customer = Customer.new(gets.chomp)
-  order = Order.new(customer)
-  order = coffee_loop(order)
-  order.calculate_total_price
-  order.print
-  machine = Machine.instance
-  machine.pay_order(order)
-end
-
 def condiments_loop(chosen_beverage)
   continue = true
   while continue
@@ -74,6 +63,17 @@ def coffee_loop(order)
   order
 end
 
+def attend_customer
+  puts 'Hola, Cual es tu nombre? '
+  customer = Customer.new(gets.chomp)
+  order = Order.new(customer)
+  order = coffee_loop(order)
+  order.calculate_total_price
+  order.print
+  machine = Machine.instance
+  machine.pay_order(order)
+end
+
 def customer_loop
   puts 'Inicalizando programa'
   store = Store.new
@@ -82,7 +82,7 @@ def customer_loop
   # puts prices
   continue = true
   while continue
-    welcome
+    attend_customer
     puts 'Atender a otro cliente? (s/n)'
     continue = false if gets.chomp == 'n'
   end

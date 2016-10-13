@@ -52,6 +52,7 @@ class Store
   def set_condiment(cond, data)
     cond.class_variable_set(:@@price, data[:price])
     cond.class_variable_set(:@@description, data[:description])
+    puts cond.class_variable_get(:@@price)
   end
 
   def condiment_init
@@ -63,13 +64,13 @@ class Store
       when 'Skim Milk'
         set_condiment(SkimMilk, cond)
       when 'Soy Milk'
-        set_beverage(SoyMilk, cond)
+        set_condiment(SoyMilk, cond)
       when 'Cream'
-        set_beverage(Cream, cond)
+        set_condiment(Cream, cond)
       when 'Ice Cream'
-        set_beverage(IceCream, cond)
+        set_condiment(IceCream, cond)
       when 'Chocolate'
-        set_beverage(Chocolate, cond)
+        set_condiment(ChocolateCondiment, cond)
       else
         return nil
       end
