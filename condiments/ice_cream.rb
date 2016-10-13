@@ -1,10 +1,13 @@
 # condiments/iceCream.rb
 class IceCream < Decorator
+  @@price = 0
+  @@description = 0
+
   def price
-    if rand < 0.5
-      @beverage.price + 100
-    else
-      @beverage.price + 500
-    end
+    @beverage.price + @@price
+  end
+
+  def contains_ice_cream
+    true
   end
 end

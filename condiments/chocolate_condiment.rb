@@ -1,7 +1,13 @@
 # condiments/chocolate_condiment.rb
 class ChocolateCondiment < Decorator
+  @@price = 0
+  @@description = 0
+
   def price
-    return @beverage.price if @beverage.chocolate?
-    @beverage.price + 200
+    @beverage.price + @@price
+  end
+
+  def contains_chocolate_condiment
+    true
   end
 end

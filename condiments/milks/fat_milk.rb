@@ -4,6 +4,10 @@ class FatMilk < Milk
   @@description = 0
 
   def price
-    @beverage.price - 200
+    @beverage.price + @@price
+  end
+
+  def contains_whole_milk
+    true
   end
 end

@@ -22,13 +22,19 @@ class BeverageCreator
   def self.update_beverage(beverage, type)
     case type
     when '1'
-      return FatMilk.new(beverage) unless beverage.contains_milk
+      return FatMilk.new(beverage) unless beverage.contains_soy_milk ||
+                                          beverage.contains_skim_milk
+      puts 'Ya tiene otro tipo de leche'
       return beverage
     when '2'
-      return SkimMilk.new(beverage) unless beverage.contains_milk
+      return SkimMilk.new(beverage) unless beverage.contains_whole_milk ||
+                                           beverage.contains_soy_milk
+      puts 'Ya tiene otro tipo de leche'
       return beverage
     when '3'
-      return SoyMilk.new(beverage) unless beverage.contains_milk
+      return SoyMilk.new(beverage) unless beverage.contains_whole_milk ||
+                                          beverage.contains_skim_milk
+      puts 'Ya tiene otro tipo de leche'
       return beverage
     when '4'
       return Cream.new(beverage)

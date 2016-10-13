@@ -18,7 +18,7 @@ class Store
   def read_csv(uri)
     csv = CSV.new(open(uri),
                   :headers => true, :header_converters => :symbol, :converters => :all)
-    csv.to_a.map {|row| row.to_hash }
+    csv.to_a.map { |row| row.to_hash }
   end
 
   def set_beverage(bev, data)
@@ -51,32 +51,25 @@ class Store
 
   def set_condiment(cond, data)
     cond.class_variable_set(:@@price, data[:price])
-    cond.class_variable_set(:@@time, data[:time])
     cond.class_variable_set(:@@description, data[:description])
   end
 
   def condiment_init
     array = read_csv('condiments.csv')
-    puts array
     array.each do |cond|
       case cond[:condiment].strip
       when 'Whole Milk'
         set_condiment(FatMilk, cond)
       when 'Skim Milk'
-        #set_beverage(Chocolate, beb)
-        puts 2
+        set_condiment(SkimMilk, cond)
       when 'Soy Milk'
-        #set_beverage(Espresso, beb)
-        puts 3
+        set_beverage(SoyMilk, cond)
       when 'Cream'
-        #set_beverage(Frappuccino, beb)
-        puts 4
+        set_beverage(Cream, cond)
       when 'Ice Cream'
-        #set_beverage(Macchiato, beb)
-        puts 5
+        set_beverage(IceCream, cond)
       when 'Chocolate'
-        #set_beverage(Tea, beb)
-        puts 6
+        set_beverage(Chocolate, cond)
       else
         return nil
       end

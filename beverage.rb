@@ -17,7 +17,27 @@ class Beverage
     false
   end
 
+  def contains_whole_milk
+    false
+  end
+
+  def contains_skim_milk
+    false
+  end
+
+  def contains_soy_milk
+    false
+  end
+
   def contains_cream
+    false
+  end
+
+  def contains_ice_cream
+    false
+  end
+
+  def contains_chocolate_condiment
     false
   end
 

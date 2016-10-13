@@ -29,6 +29,18 @@ class Order
     @total_price = 0
     @beverage_list.each do |bev|
       @total_price += bev.price
+      @total_price -= 200 if bev.contains_whole_milk
+      @total_price += 300 if bev.contains_soy_milk
+      if bev.contains_ice_cream
+        @total_price += if rand < 0.5
+                          100
+                        else
+                          500
+                        end
+      end
+      if bev.contains_chocolate_condiment
+        @total_price += 200 unless bev.chocolate?
+      end
     end
   end
 
